@@ -8,13 +8,14 @@ st.set_page_config(
 )
 
 st.markdown("""
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <style>
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 html, body {
     height:100%;
-    overflow:hidden;
 }
 
 html, body, [class*="css"]{
@@ -25,17 +26,14 @@ header{visibility:hidden;}
 footer{visibility:hidden;}
 
 .stApp{
-height:100vh;
-overflow:hidden;
+min-height:100vh;
 background:linear-gradient(135deg,#1a0026,#32004d,#4b0082);
 color:white;
 }
 
 .block-container{
 padding-top:1rem;
-padding-bottom:0rem;
-height:82vh;
-overflow:hidden;
+padding-bottom:2rem;
 }
 
 /* page animation */
@@ -61,11 +59,12 @@ transform:translateY(0);
 background-image:url("bg2.jpg");
 background-size:cover;
 background-position:center;
-height:75vh;
+min-height:70vh;
 display:flex;
 align-items:center;
 justify-content:center;
 border-radius:20px;
+padding:20px;
 }
 
 .hero-box{
@@ -75,6 +74,7 @@ padding:60px;
 border-radius:20px;
 text-align:center;
 max-width:750px;
+width:100%;
 }
 
 /* project cards */
@@ -84,6 +84,13 @@ background:rgba(255,255,255,0.08);
 padding:25px;
 border-radius:15px;
 text-align:center;
+height:100%;
+}
+
+.project-icon{
+font-size:60px;
+color:#c084fc;
+margin-bottom:15px;
 }
 
 /* footer */
@@ -106,6 +113,33 @@ transition:0.3s;
 
 .footer img:hover{
 transform:scale(1.2);
+}
+
+/* MOBILE RESPONSIVE */
+
+@media (max-width:768px){
+
+.hero-box{
+padding:30px;
+}
+
+.hero-box h1{
+font-size:28px;
+}
+
+.hero-box p{
+font-size:14px;
+}
+
+.project-card{
+margin-bottom:20px;
+}
+
+.block-container{
+padding-left:1rem;
+padding-right:1rem;
+}
+
 }
 
 </style>
@@ -195,14 +229,6 @@ building impactful real-world solutions.
 
 elif page == "Skills":
 
-    st.markdown("""
-    <style>
-    .block-container{
-        overflow:auto;
-    }
-    </style>
-    """, unsafe_allow_html=True)
-
     st.markdown('<div class="page">', unsafe_allow_html=True)
 
     st.header("Technical Skills")
@@ -252,39 +278,52 @@ elif page == "Projects":
     col1,col2,col3 = st.columns(3)
 
     with col1:
-        st.markdown('<div class="project-card">',unsafe_allow_html=True)
-        st.subheader("Task Manager Application")
-        st.write("A task management application built using Python and Tkinter.")
-        st.link_button("GitHub","https://github.com/jesslin23/todo-app")
-        st.markdown('</div>',unsafe_allow_html=True)
+        st.markdown("""
+        <div class="project-card">
+        <div class="project-icon">
+        <i class="fa-solid fa-list-check"></i>
+        </div>
+        <h3>Task Manager Application</h3>
+        <p>A task management application built using Python and Tkinter.</p>
+        <a href="https://github.com/jesslin23/todo-app" target="_blank">
+        <button style="padding:8px 16px;border-radius:8px;background:#0e1117;color:white;border:none;">Link</button>
+        </a>
+        </div>
+        """, unsafe_allow_html=True)
 
     with col2:
-        st.markdown('<div class="project-card">',unsafe_allow_html=True)
-        st.subheader("SonicSync Website")
-        st.write("A Music instrument website built using Html, Css, JavaScript")
-        st.link_button("Link","https://jesslin23.github.io/instrument_shop/")
-        st.markdown('</div>',unsafe_allow_html=True)
+        st.markdown("""
+        <div class="project-card">
+        <div class="project-icon">
+        <i class="fa-solid fa-music"></i>
+        </div>
+        <h3>SonicSync Website</h3>
+        <p>A Music instrument website built using Html, Css, JavaScript</p>
+        <a href="https://jesslin23.github.io/instrument_shop/" target="_blank">
+        <button style="padding:8px 16px;border-radius:8px;background:#0e1117;color:white;border:none;">Link</button>
+        </a>
+        </div>
+        """, unsafe_allow_html=True)
 
     with col3:
-        st.markdown('<div class="project-card">',unsafe_allow_html=True)
-        st.subheader("Streamlit Portfolio")
-        st.write("A personal portfolio website built using Python and Streamlit.")
-        st.link_button("Link","https://github.com/jesslin23")
-        st.markdown('</div>',unsafe_allow_html=True)
+        st.markdown("""
+        <div class="project-card">
+        <div class="project-icon">
+        <i class="fa-solid fa-user"></i>
+        </div>
+        <h3>Streamlit Portfolio</h3>
+        <p>A personal portfolio website built using Python and Streamlit.</p>
+        <a href="https://github.com/jesslin23" target="_blank">
+        <button style="padding:8px 16px;border-radius:8px;background:#0e1117;color:white;border:none;">Link</button>
+        </a>
+        </div>
+        """, unsafe_allow_html=True)
 
     st.markdown('</div>', unsafe_allow_html=True)
 
 # CONTACT
 
 elif page == "Contact":
-
-    st.markdown("""
-    <style>
-    .block-container{
-        overflow:auto;
-    }
-    </style>
-    """, unsafe_allow_html=True)
 
     st.markdown('<div class="page">', unsafe_allow_html=True)
 
